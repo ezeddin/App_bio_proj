@@ -3,8 +3,8 @@
 %%% Contributions from Sarah Mount, May 2014
 \documentclass[a4paper]{tufte-handout}
 
-\newcommand{\workingDate}{\textsc{May $|$ 2014}}
-\newcommand{\userName}{Felix Engstr\"o}
+\newcommand{\workingDate}{\textsc{Dec $|$ 2016}}
+\newcommand{\userName}{Felix Engstr\"om}
 \newcommand{\institution}{KTH}
 
 \usepackage{lab_notes}
@@ -52,7 +52,7 @@ classification problem. We are going to do this using an RNN(recurrent neural
 network) with LSTM(long short-term memory) units. In the first step we are
 going to disregard the data we have regarding the underlying statets and only
 look at the binary classification problem. In a later stage we migth try to
-train an ANN with the hidenstate data as target.
+train an ANN with the hiden-state data as target.
 
 
 \begin{figure}
@@ -63,6 +63,7 @@ train an ANN with the hidenstate data as target.
 \end{figure}
 
 This model was trained without dropout and with an embedding layer that was probably unneccesary.
+The run took about 2 hours.
 
 \begin{figure}
     \begin{center}
@@ -71,7 +72,19 @@ This model was trained without dropout and with an embedding layer that was prob
     \caption{Stats from the first run}
 \end{figure}
 
+\newday{21 december 2016}
 
+Today we finished an HMM approach to the problem. In this we use the
+hidden-state data to create a markow model for all the peptides in the training
+data. Then to classify new sequences we use the model to predict the the hiden
+state of the sequence, and then look at the produced hiden-state to decide if
+the sequence is a signal peptide.
+
+\newday{22 december 2016}
+
+We are now trying to use our model to analyze the proteome. We realized that
+our model had no way of handleing errors in the data, or '*' and had to adjust
+for this. 
 
 \hrulefill
 
